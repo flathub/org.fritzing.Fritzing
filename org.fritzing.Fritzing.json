@@ -3,7 +3,6 @@
     "runtime": "org.kde.Platform",
     "sdk": "org.kde.Sdk",
     "runtime-version": "5.9",
-    "branch": "stable",
     "command": "Fritzing",
     "rename-desktop-file": "fritzing.desktop",
     "rename-appdata-file": "fritzing.appdata.xml",
