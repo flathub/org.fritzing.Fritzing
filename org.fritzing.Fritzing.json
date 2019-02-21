@@ -89,7 +89,7 @@
             ],
             "post-install": [
                 "install -Dm644 -t /app/share/appdata/ fritzing.appdata.xml",
-                "desktop-file-edit --set-key=Exec --set-value='Fritzing %U' /app/share/applications/fritzing.desktop",
+                "desktop-file-edit --set-key=Exec --set-value='Fritzing %f' /app/share/applications/fritzing.desktop",
                 "mkdir -p /app/share/icons/hicolor/256x256/apps/",
                 "mv /app/share/icons/{,hicolor/256x256/apps/}fritzing.png",
                 "mv /app/share/mime/packages/{fritzing,org.fritzing.Fritzing}.xml",
