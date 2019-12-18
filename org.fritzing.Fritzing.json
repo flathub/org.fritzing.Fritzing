@@ -2,7 +2,7 @@
     "id": "org.fritzing.Fritzing",
     "runtime": "org.kde.Platform",
     "sdk": "org.kde.Sdk",
-    "runtime-version": "5.12",
+    "runtime-version": "5.13",
     "command": "Fritzing",
     "rename-desktop-file": "fritzing.desktop",
     "rename-appdata-file": "fritzing.appdata.xml",
