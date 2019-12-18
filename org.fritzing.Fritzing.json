@@ -51,6 +51,11 @@
         {
             "name": "fritzing",
             "buildsystem": "qmake",
+            "build-options": {
+                "env": {
+                    "QT_QPA_PLATFORM": "offscreen"
+                }
+            },
             "sources": [
                 {
                     "type": "git",
@@ -75,6 +80,7 @@
                 }
             ],
             "post-install": [
+                "Fritzing -db /app/share/fritzing/parts/parts.db -pp /app/share/fritzing/parts -f /app/share/fritzing",
                 "install -Dm755 /app/share/{pixmaps,icons/hicolor/256x256/apps}/fritzing.png",
                 "mv /app/share/mime/packages/{fritzing,org.fritzing.Fritzing}.xml",
                 "sh install-mime-types.sh"
