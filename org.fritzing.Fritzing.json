@@ -63,6 +63,10 @@
                     "tag": "CD-498"
                 },
                 {
+                    "type": "patch",
+                    "path": "patches/fritzing-appdata-oars.patch"
+                },
+                {
                     "type": "git",
                     "url": "https://github.com/fritzing/fritzing-parts.git",
                     "tag": "0.9.3b",
