@@ -2,10 +2,8 @@
     "id": "org.fritzing.Fritzing",
     "runtime": "org.kde.Platform",
     "sdk": "org.kde.Sdk",
-    "runtime-version": "5.12",
+    "runtime-version": "5.13",
     "command": "Fritzing",
-    "rename-desktop-file": "fritzing.desktop",
-    "rename-appdata-file": "fritzing.appdata.xml",
     "rename-icon": "fritzing",
     "finish-args": [
         "--socket=x11", "--share=ipc",
@@ -53,27 +51,20 @@
         {
             "name": "fritzing",
             "buildsystem": "qmake",
+            "build-options": {
+                "env": {
+                    "QT_QPA_PLATFORM": "offscreen"
+                }
+            },
             "sources": [
                 {
                     "type": "git",
                     "url": "https://github.com/fritzing/fritzing-app.git",
-                    "tag": "0.9.3b"
+                    "tag": "CD-498"
                 },
                 {
                     "type": "patch",
-                    "path": "fritzing-libgit-0.24.patch"
-                },
-                {
-                    "type": "patch",
-                    "path": "fritzing-cleanup-build-files.patch"
-                },
-                {
-                    "type": "patch",
-                    "path": "fritzing-folderutils-fix.patch"
-                },
-                {
-                    "type": "patch",
-                    "path": "fritzing-fix-desktop-file.patch"
+                    "path": "patches/fritzing-appdata-oars.patch"
                 },
                 {
                     "type": "git",
@@ -82,15 +73,19 @@
                     "dest": "parts"
                 },
                 {
+                    "type": "shell",
+                    "commands": [
+                        "sed -i 's/LIBGIT_STATIC = true/LIBGIT_STATIC = false/' phoenix.pro"
+                    ]
+                },
+                {
                     "type": "file",
                     "path": "install-mime-types.sh"
                 }
             ],
             "post-install": [
-                "install -Dm644 -t /app/share/appdata/ fritzing.appdata.xml",
-                "desktop-file-edit --set-key=Exec --set-value='Fritzing %f' /app/share/applications/fritzing.desktop",
-                "mkdir -p /app/share/icons/hicolor/256x256/apps/",
-                "mv /app/share/icons/{,hicolor/256x256/apps/}fritzing.png",
+                "Fritzing -db /app/share/fritzing/parts/parts.db -pp /app/share/fritzing/parts -f /app/share/fritzing",
+                "install -Dm755 /app/share/{pixmaps,icons/hicolor/256x256/apps}/fritzing.png",
                 "mv /app/share/mime/packages/{fritzing,org.fritzing.Fritzing}.xml",
                 "sh install-mime-types.sh"
             ]
