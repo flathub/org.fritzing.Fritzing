@@ -2,7 +2,7 @@
     "id": "org.fritzing.Fritzing",
     "runtime": "org.kde.Platform",
     "sdk": "org.kde.Sdk",
-    "runtime-version": "5.13",
+    "runtime-version": "5.15",
     "command": "Fritzing",
     "rename-icon": "fritzing",
     "finish-args": [
@@ -64,7 +64,10 @@
                 },
                 {
                     "type": "patch",
-                    "path": "patches/fritzing-appdata-oars.patch"
+                    "paths": [
+                        "patches/fritzing-appdata-oars.patch",
+                        "patches/fritzing-appdata-screenshots.patch"
+                    ]
                 },
                 {
                     "type": "git",
