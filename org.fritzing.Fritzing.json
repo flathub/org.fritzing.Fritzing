@@ -64,7 +64,10 @@
                 },
                 {
                     "type": "patch",
-                    "path": "patches/fritzing-appdata-oars.patch"
+                    "paths": [
+                        "patches/fritzing-appdata-oars.patch",
+                        "patches/fritzing-appdata-screenshots.patch"
+                    ]
                 },
                 {
                     "type": "git",

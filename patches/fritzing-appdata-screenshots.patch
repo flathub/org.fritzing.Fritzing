@@ -1,0 +1,24 @@
+diff --git a/org.fritzing.Fritzing.appdata.xml b/org.fritzing.Fritzing.appdata.xml
+index b63c1ae0..60337053 100644
+--- a/org.fritzing.Fritzing.appdata.xml
++++ b/org.fritzing.Fritzing.appdata.xml
+@@ -25,16 +25,13 @@
+  </description>
+  <screenshots>
+   <screenshot type="default">
+-   <image>http://fritzing.org/static/img/fritzing-preview-bb.png</image>
++   <image>https://fritzing.org/assets/fritzing-preview-bb-d6833748595f9f6b12ab9dcd165886f8f7a9970e3a6e49a6face8196a83ab288.png</image>
+   </screenshot>
+   <screenshot>
+-   <image>http://fritzing.org/static/img/fritzing-preview-schem.png</image>
++   <image>https://fritzing.org/assets/fritzing-preview-schem-9240bfebfd0e2384152ecec2b700c4aeee4adfa066f14b76e76c9f2c50ab8a2a.png</image>
+   </screenshot>
+   <screenshot>
+-   <image>http://fritzing.org/static/img/fritzing-preview-pcb.png</image>
+-  </screenshot>
+-  <screenshot>
+-   <image>http://fritzing.org/static/img/fritzing-preview-welcome.png</image>
++   <image>https://fritzing.org/assets/fritzing-preview-pcb-394c7b377466bcfde399554ccad2a4a9a6c85d15edcd618b072dd4da99799c5c.png</image>
+   </screenshot>
+  </screenshots>
+  <url type="homepage">http://fritzing.org/</url>
