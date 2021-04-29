@@ -60,19 +60,20 @@
                 {
                     "type": "git",
                     "url": "https://github.com/fritzing/fritzing-app.git",
-                    "tag": "CD-498"
+                    "tag": "0.9.6",
+                    "commit": "8a1e0682d7846f6384ae45373961ed693b4c55d2"
                 },
                 {
                     "type": "patch",
                     "paths": [
-                        "patches/fritzing-appdata-oars.patch",
                         "patches/fritzing-appdata-screenshots.patch"
                     ]
                 },
                 {
                     "type": "git",
                     "url": "https://github.com/fritzing/fritzing-parts.git",
-                    "tag": "0.9.3b",
+                    "branch": "release_0.9.6",
+                    "commit": "b82c8c3abd9bca5d30a4d0c28fb4327ac38cf511",
                     "dest": "parts"
                 },
                 {
