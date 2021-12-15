@@ -72,7 +72,8 @@
                 {
                     "type": "patch",
                     "paths": [
-                        "patches/fritzing-appdata-screenshots.patch"
+                        "patches/fritzing-appdata-screenshots.patch",
+                        "patches/add-wm-class.patch"
                     ]
                 },
                 {
