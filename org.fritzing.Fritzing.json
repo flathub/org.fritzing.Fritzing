@@ -79,7 +79,6 @@
                 {
                     "type": "git",
                     "url": "https://github.com/fritzing/fritzing-parts.git",
-                    "branch": "release_0.9.6",
                     "commit": "b82c8c3abd9bca5d30a4d0c28fb4327ac38cf511",
                     "dest": "parts"
                 },
