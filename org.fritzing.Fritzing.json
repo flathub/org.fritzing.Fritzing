@@ -101,8 +101,8 @@
             "sources": [
                 {
                     "type": "git",
-                    "url": "https://github.com/hsoj/fritzing-app.git",
-                    "commit": "b6fff32286449c4f1095557db1879cb1e4a62ec9"
+                    "url": "https://github.com/fritzing/fritzing-app.git",
+                    "commit": "14c1ae4a9af7c5f4f1c7438f8cda7750c09e2175"
                 },
                 {
                     "type": "patch",
