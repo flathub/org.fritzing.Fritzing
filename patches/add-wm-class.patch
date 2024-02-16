@@ -1,12 +1,3 @@
-From d49b6f83b3b6224c45562de15c9492a4546c414c Mon Sep 17 00:00:00 2001
-From: Stan Janssen <stan@finetuned.nl>
-Date: Wed, 15 Dec 2021 09:21:42 +0100
-Subject: [PATCH] Add StartupWMClass to .desktop file
-
----
- org.fritzing.Fritzing.desktop | 1 +
- 1 file changed, 1 insertion(+)
-
 diff --git a/org.fritzing.Fritzing.desktop b/org.fritzing.Fritzing.desktop
 index e7899f90..56ab020d 100644
 --- a/org.fritzing.Fritzing.desktop
@@ -16,6 +7,3 @@ index e7899f90..56ab020d 100644
  StartupNotify=true
  MimeType=application/x-fritzing-fz;application/x-fritzing-fzz;application/x-fritzing-fzp;application/x-fritzing-fzpz;application/x-fritzing-fzb;application/x-fritzing-fzbz;application/x-fritzing-fzm;
 +StartupWMClass=Fritzing
--- 
-2.25.1
-
