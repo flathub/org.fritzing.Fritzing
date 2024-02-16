@@ -60,6 +60,17 @@
             ]
         },
         {
+            "name": "polyclipping",
+            "buildsystem": "cmake",
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://downloads.sourceforge.net/polyclipping/clipper_ver6.4.2.zip",
+                    "sha256": "a14320d82194807c4480ce59c98aa71cd4175a5156645c4e2b3edd330b930627"
+                }
+            ]
+        },
+        {
             "name": "ngspice",
             "build-options": {"strip": true},
             "config-opts": [
@@ -104,6 +115,7 @@
                     "paths": [
                         "patches/dep-ngspice-buildpath.patch",
                         "patches/dep-quazip-buildpath.patch",
+                        "patches/dep-polyclipping-buildpath.patch",
                         "patches/fritzing-appdata-screenshots.patch",
                         "patches/add-wm-class.patch"
                     ]
