@@ -49,6 +49,37 @@
             ]
         },
         {
+            "name": "quazip",
+            "buildsystem": "cmake-ninja",
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/stachenov/quazip/archive/refs/tags/v1.3.tar.gz",
+                    "sha256": "c1239559cd6860cab80a0fd81f4204e606f9324f702dab6166b0960676ee1754"
+                }
+            ]
+        },
+        {
+            "name": "ngspice",
+            "build-options": {"strip": true},
+            "config-opts": [
+                "--enable-xspice",
+                "--enable-cider",
+                "--enable-oldapps",
+                "--enable-openmp",
+                "--without-x",
+                "--with-ngshared"
+            ],
+            "sources": [
+              {
+                "type": "git",
+                "url": "https://git.code.sf.net/p/ngspice/ngspice",
+                "tag": "ngspice-40",
+                "commit": "6eeb48bb5a1e0132ae7d58ac5cd05d9785c6b31c"
+              }
+            ]
+        },
+        {
             "name": "fritzing",
             "buildsystem": "qmake",
             "build-options": {
