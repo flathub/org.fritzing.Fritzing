@@ -102,6 +102,8 @@
                 {
                     "type": "patch",
                     "paths": [
+                        "patches/dep-ngspice-buildpath.patch",
+                        "patches/dep-quazip-buildpath.patch",
                         "patches/fritzing-appdata-screenshots.patch",
                         "patches/add-wm-class.patch"
                     ]
