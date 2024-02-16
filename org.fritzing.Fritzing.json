@@ -2,7 +2,7 @@
     "id": "org.fritzing.Fritzing",
     "runtime": "org.kde.Platform",
     "sdk": "org.kde.Sdk",
-    "runtime-version": "5.15-21.08",
+    "runtime-version": "6.5",
     "command": "Fritzing",
     "rename-icon": "fritzing",
     "finish-args": [
@@ -32,8 +32,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://boostorg.jfrog.io/artifactory/main/release/1.66.0/source/boost_1_66_0.tar.gz",
-                    "sha256": "bd0df411efd9a585e5a2212275f8762079fed8842264954675a4fddc46cfcf60"
+                    "url": "https://boostorg.jfrog.io/artifactory/main/release/1.81.0/source/boost_1_81_0.tar.gz",
+                    "sha256": "205666dea9f6a7cfed87c7a6dfbeb52a2c1b9de55712c9c1a87735d7181452b6"
                 }
             ]
         },
