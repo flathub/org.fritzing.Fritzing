@@ -1,8 +1,8 @@
 diff --git a/pri/quazipdetect.pri b/pri/quazipdetect.pri
-index 07bd5621..1fe88bb5 100644
+index 07bd5621..8bf3565c 100644
 --- a/pri/quazipdetect.pri
 +++ b/pri/quazipdetect.pri
-@@ -1,29 +1,10 @@
+@@ -1,29 +1,11 @@
 -# Copyright (c) 2021,2023 Fritzing GmbH
 +# Copyright (c) 2021 Fritzing GmbH
 
@@ -36,5 +36,6 @@ index 07bd5621..1fe88bb5 100644
 -	LIBS += -lz
 -}
 +message("including quazip library on linux")
++QUAZIP_LIB_PATH=/app/lib
 +INCLUDEPATH += /app/include/QuaZip-Qt6-1.4/
-+LIBS += -lquazip1-qt6
++LIBS += -L$$QUAZIP_LIB_PATH -lquazip1-qt6
