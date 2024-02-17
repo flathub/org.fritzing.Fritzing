@@ -82,11 +82,15 @@
         {
             "name": "libgit2",
             "buildsystem": "cmake-ninja",
+            "build-options": {
+                "cflags": "-Wp,-U_FORTIFY_SOURCE"
+            },
             "sources": [
                 {
-                    "type": "archive",
-                    "url": "https://github.com/libgit2/libgit2/archive/v0.27.7.tar.gz",
-                    "sha256": "1a5435a483759b1cd96feb12b11abb5231b0688016db506ce5947178f6ba2531"
+                    "type": "git",
+                    "url": "https://github.com/libgit2/libgit2",
+                    "tag": "v1.7.2",
+                    "commit": "a418d9d4ab87bae16b87d8f37143a4687ae0e4b2"
                 }
             ]
         },
@@ -124,6 +128,7 @@
                         "patches/dep-quazip-buildpath.patch",
                         "patches/dep-polyclipping-buildpath.patch",
                         "patches/dep-svgpp-buildpath.patch",
+                        "patches/dep-libgit2-path.patch",
                         "patches/fritzing-appdata-screenshots.patch",
                         "patches/add-wm-class.patch"
                     ]

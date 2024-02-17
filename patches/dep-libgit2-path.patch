@@ -1,0 +1,83 @@
+diff --git a/pri/libgit2detect.pri b/pri/libgit2detect.pri
+index e7985666..52bdd313 100644
+--- a/pri/libgit2detect.pri
++++ b/pri/libgit2detect.pri
+@@ -18,71 +18,17 @@
+ # macOS uses 1.7.1 static linked
+
+ # Use libgit2 1.7.1 ( https://github.com/libgit2/libgit2/pull/6471 )
+-LIBGIT_VERSION=1.7.1
+-LIBGITPATH = $$absolute_path($$_PRO_FILE_PWD_/../libgit2-$$LIBGIT_VERSION)
+
+-unix:!macx {
+-	LIBGIT_STATIC = false
+-} else {
+-	LIBGIT_STATIC = true
+-}
+-
+-
+-win32 {
+-	if ($$LIBGIT_STATIC) {
+-		LIBGIT2INCLUDE = "$$_PRO_FILE_PWD_/../libgit2/include"
+-
+-		exists($$LIBGIT2INCLUDE/git2.h) {
+-			message("found libgit2 include path at $$LIBGIT2INCLUDE")
+-		} else {
+-			message("Fritzing requires libgit2")
+-			message("Build it from the repo at https://github.com/libgit2")
+-			message("See https://github.com/fritzing/fritzing-app/wiki for details.")
+-
+-			error("libgit2 include path not found in $$LIBGIT2INCLUDE")
+-		}
+-	}
++message("Using customized libgit2 detect script.")
+
+-    contains(QMAKE_TARGET.arch, x86_64) {
+-        LIBGIT2LIB = "$$_PRO_FILE_PWD_/../libgit2/build64/Release"
+-    } else {
+-        LIBGIT2LIB = "$$_PRO_FILE_PWD_/../libgit2/build32/Release"
+-    }
++INCLUDEPATH += /app/include/git2
++LIBGIT2LIB = /app/lib
+
+-    exists($$LIBGIT2LIB/git2.lib) {
+-        message("found libgit2 library in $$LIBGIT2LIB")
+-    } else {
+-        error("libgit2 library not found in $$LIBGIT2LIB")
+-    }
+-
+-	INCLUDEPATH += $$LIBGIT2INCLUDE
+-    LIBS += -L$$LIBGIT2LIB -lgit2
++message("Enabled dynamic linking of libgit2 $$LIBGIT_VERSION")
++LIBS += -L$$LIBGIT2LIB -lgit2
++!macx {
++	QMAKE_RPATHDIR += $$LIBGIT2LIB
+ }
+-
+-unix {
+-	LIBGIT2LIB = $$LIBGITPATH/lib
+-	if ($$LIBGIT_STATIC) {
+-
+-		exists($$LIBGIT2LIB/libgit2.a) {
+-			message("found libgit2 library in $$LIBGIT2LIB")
+-		} else {
+-			error("static libgit2 library not found in $$LIBGIT2LIB")
+-		}
+-		INCLUDEPATH += $$LIBGITPATH/include
+-		macx {
+-			LIBS += $$LIBGIT2LIB/libgit2.a -framework Security
+-		} else {
+-			LIBS += $$LIBGIT2LIB/libgit2.a -lssl -lcrypto
+-		}
+-	} else {
+-		message("Enabled dynamic linking of libgit2 $$LIBGIT_VERSION")
+-		INCLUDEPATH += $$LIBGITPATH/include
+-		LIBS += -L$$LIBGIT2LIB -lgit2
+-		!macx {
+-			QMAKE_RPATHDIR += $$LIBGIT2LIB
+-		}
+ 		#PKG_CONFIG_PATH=$$LIBGITPATH/lib/pkgconfig:$$PKG_CONFIG_PATH
+ 		#PKGCONFIG += libgit2
+-	}
+ }
+-
