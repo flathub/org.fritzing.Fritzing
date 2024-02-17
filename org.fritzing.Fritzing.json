@@ -111,11 +111,19 @@
                     "commit": "dbdbe34c843677df721c7b3fc3e32c0f737e7e95"
                 },
                 {
+                    "type": "git",
+                    "url": "https://github.com/svgpp/svgpp.git",
+                    "tag": "v1.3.1",
+                    "commit": "fda1fd889548289178261d7aa02dd5d647247f94",
+                    "dest": "svgpp"
+                },
+                {
                     "type": "patch",
                     "paths": [
                         "patches/dep-ngspice-buildpath.patch",
                         "patches/dep-quazip-buildpath.patch",
                         "patches/dep-polyclipping-buildpath.patch",
+                        "patches/dep-svgpp-buildpath.patch",
                         "patches/fritzing-appdata-screenshots.patch",
                         "patches/add-wm-class.patch"
                     ]
