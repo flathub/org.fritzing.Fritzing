@@ -128,8 +128,7 @@
                         "patches/dep-quazip-buildpath.patch",
                         "patches/dep-polyclipping-buildpath.patch",
                         "patches/dep-svgpp-buildpath.patch",
-                        "patches/dep-libgit2-path.patch",
-                        "patches/fritzing-appdata-screenshots.patch",
+                        "patches/fritzing-appdata.patch",
                         "patches/add-wm-class.patch"
                     ]
                 },

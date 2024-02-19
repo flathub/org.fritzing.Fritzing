@@ -1,8 +1,8 @@
 diff --git a/org.fritzing.Fritzing.appdata.xml b/org.fritzing.Fritzing.appdata.xml
-index e1b9a541..c11e0199 100644
+index e1b9a541..9fd90d84 100644
 --- a/org.fritzing.Fritzing.appdata.xml
 +++ b/org.fritzing.Fritzing.appdata.xml
-@@ -33,16 +33,13 @@
+@@ -33,23 +33,19 @@
   </description>
   <screenshots>
    <screenshot type="default">
@@ -22,3 +22,10 @@ index e1b9a541..c11e0199 100644
    </screenshot>
   </screenshots>
   <url type="homepage">https://fritzing.org/</url>
+  <url type="bugtracker">https://github.com/fritzing/fritzing-app/issues</url>
+  <url type="faq">https://fritzing.org/faq/</url>
+  <url type="help">https://fritzing.org/learning/</url>
+- <url type="forum">https://forum.fritzing.org</url>
+  <url type="translate">https://fritzing.org/support-us/language-translation/</url>
+  <releases>
+   <release version="1.0.2b" date="2023-09-09"/>
