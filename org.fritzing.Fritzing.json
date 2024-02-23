@@ -6,7 +6,7 @@
     "command": "Fritzing",
     "rename-icon": "fritzing",
     "finish-args": [
-        "--share=ipc",
+        "--socket=fallback-x11", "--share=ipc",
         "--socket=wayland",
         "--device=dri",
         "--socket=pulseaudio",
