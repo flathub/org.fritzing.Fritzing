@@ -1,24 +1,39 @@
 diff --git a/org.fritzing.Fritzing.appdata.xml b/org.fritzing.Fritzing.appdata.xml
-index e1b9a541..9fd90d84 100644
+index e1b9a541..334da595 100644
 --- a/org.fritzing.Fritzing.appdata.xml
 +++ b/org.fritzing.Fritzing.appdata.xml
-@@ -33,23 +33,19 @@
+@@ -9,6 +9,9 @@
+   <content_attribute id="social-info">mild</content_attribute>
+  </content_rating>
+  <name>Fritzing</name>
++ <developer id="org.fritzing">
++  <name>Fritzing GmbH</name>
++ </developer>
+  <summary>Electronic Design Tool</summary>
+  <description>
+   <p>
+@@ -33,23 +36,26 @@
   </description>
   <screenshots>
    <screenshot type="default">
 -   <image>https://fritzing.org/static/img/fritzing-preview-bb.png</image>
 +   <image>https://fritzing.org/assets/fritzing-preview-bb-d6833748595f9f6b12ab9dcd165886f8f7a9970e3a6e49a6face8196a83ab288.png</image>
++   <caption>Breadboard View</caption>
    </screenshot>
    <screenshot>
 -   <image>https://fritzing.org/static/img/fritzing-preview-schem.png</image>
 +   <image>https://fritzing.org/assets/fritzing-preview-schem-9240bfebfd0e2384152ecec2b700c4aeee4adfa066f14b76e76c9f2c50ab8a2a.png</image>
++   <caption>Schematic View</caption>
    </screenshot>
    <screenshot>
 -   <image>https://fritzing.org/static/img/fritzing-preview-pcb.png</image>
--  </screenshot>
--  <screenshot>
--   <image>https://fritzing.org/static/img/fritzing-preview-welcome.png</image>
 +   <image>https://fritzing.org/assets/fritzing-preview-pcb-394c7b377466bcfde399554ccad2a4a9a6c85d15edcd618b072dd4da99799c5c.png</image>
++   <caption>PCB View</caption>
+   </screenshot>
+   <screenshot>
+-   <image>https://fritzing.org/static/img/fritzing-preview-welcome.png</image>
++   <image>https://web.archive.org/web/20200625021513if_/https://fritzing.org/static/img/fritzing-preview-welcome.png</image>
++   <caption>Welcome</caption>
    </screenshot>
   </screenshots>
   <url type="homepage">https://fritzing.org/</url>
@@ -29,3 +44,11 @@ index e1b9a541..9fd90d84 100644
   <url type="translate">https://fritzing.org/support-us/language-translation/</url>
   <releases>
    <release version="1.0.2b" date="2023-09-09"/>
+@@ -57,6 +63,7 @@
+  <provides>
+   <binary>Fritzing</binary>
+  </provides>
++ <launchable type="desktop-id">org.fritzing.Fritzing.desktop</launchable>
+  <translation type="qt">fritzing</translation>
+  <update_contact>info_AT_fritzing.org</update_contact>
+ </component>
