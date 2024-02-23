@@ -147,6 +147,12 @@
                 {
                     "type": "file",
                     "path": "install-mime-types.sh"
+                },
+                {
+                    "type": "shell",
+                    "commands": [
+                        "lrelease phoenix.pro"
+                    ]
                 }
             ]
         }
