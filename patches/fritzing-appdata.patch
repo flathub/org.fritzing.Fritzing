@@ -1,5 +1,5 @@
 diff --git a/org.fritzing.Fritzing.appdata.xml b/org.fritzing.Fritzing.appdata.xml
-index e1b9a541..334da595 100644
+index e1b9a541..a6bc5f11 100644
 --- a/org.fritzing.Fritzing.appdata.xml
 +++ b/org.fritzing.Fritzing.appdata.xml
 @@ -9,6 +9,9 @@
@@ -12,7 +12,13 @@ index e1b9a541..334da595 100644
   <summary>Electronic Design Tool</summary>
   <description>
    <p>
-@@ -33,23 +36,26 @@
+@@ -28,28 +31,31 @@
+   </p>
+   <p>
+     The project is made possible with the payments from our users. If you don't yet have it, please
+-       consider downloading the offical, most up to date, version from our website, http://fritzing.org .
++       consider downloading the offical, most up to date, version from our website.
+   </p>
   </description>
   <screenshots>
    <screenshot type="default">
