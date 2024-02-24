@@ -2,11 +2,11 @@
     "id": "org.fritzing.Fritzing",
     "runtime": "org.kde.Platform",
     "sdk": "org.kde.Sdk",
-    "runtime-version": "5.15-21.08",
+    "runtime-version": "6.5",
     "command": "Fritzing",
     "rename-icon": "fritzing",
     "finish-args": [
-        "--socket=x11", "--share=ipc",
+        "--socket=fallback-x11", "--share=ipc",
         "--socket=wayland",
         "--device=dri",
         "--socket=pulseaudio",
@@ -32,19 +32,65 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://boostorg.jfrog.io/artifactory/main/release/1.66.0/source/boost_1_66_0.tar.gz",
-                    "sha256": "bd0df411efd9a585e5a2212275f8762079fed8842264954675a4fddc46cfcf60"
+                    "url": "https://boostorg.jfrog.io/artifactory/main/release/1.81.0/source/boost_1_81_0.tar.gz",
+                    "sha256": "205666dea9f6a7cfed87c7a6dfbeb52a2c1b9de55712c9c1a87735d7181452b6"
+                }
+            ]
+        },
+        {
+            "name": "ngspice",
+            "build-options": {"strip": true},
+            "config-opts": [
+                "--enable-xspice",
+                "--enable-cider",
+                "--enable-oldapps",
+                "--enable-openmp",
+                "--without-x",
+                "--with-ngshared"
+            ],
+            "sources": [
+              {
+                "type": "git",
+                "url": "https://git.code.sf.net/p/ngspice/ngspice",
+                "tag": "ngspice-40",
+                "commit": "6eeb48bb5a1e0132ae7d58ac5cd05d9785c6b31c"
+              }
+            ]
+        },
+        {
+            "name": "polyclipping",
+            "buildsystem": "cmake",
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://downloads.sourceforge.net/polyclipping/clipper_ver6.4.2.zip",
+                    "sha256": "a14320d82194807c4480ce59c98aa71cd4175a5156645c4e2b3edd330b930627"
+                }
+            ]
+        },
+        {
+            "name": "quazip",
+            "buildsystem": "cmake-ninja",
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/stachenov/quazip/archive/refs/tags/v1.4.tar.gz",
+                    "sha256": "79633fd3a18e2d11a7d5c40c4c79c1786ba0c74b59ad752e8429746fe1781dd6"
                 }
             ]
         },
         {
             "name": "libgit2",
             "buildsystem": "cmake-ninja",
+            "build-options": {
+                "cflags": "-Wp,-U_FORTIFY_SOURCE"
+            },
             "sources": [
                 {
-                    "type": "archive",
-                    "url": "https://github.com/libgit2/libgit2/archive/v0.27.7.tar.gz",
-                    "sha256": "1a5435a483759b1cd96feb12b11abb5231b0688016db506ce5947178f6ba2531"
+                    "type": "git",
+                    "url": "https://github.com/libgit2/libgit2",
+                    "tag": "v1.7.2",
+                    "commit": "a418d9d4ab87bae16b87d8f37143a4687ae0e4b2"
                 }
             ]
         },
@@ -66,20 +112,30 @@
                 {
                     "type": "git",
                     "url": "https://github.com/fritzing/fritzing-app.git",
-                    "tag": "0.9.6",
-                    "commit": "8a1e0682d7846f6384ae45373961ed693b4c55d2"
+                    "commit": "dbdbe34c843677df721c7b3fc3e32c0f737e7e95"
+                },
+                {
+                    "type": "git",
+                    "url": "https://github.com/svgpp/svgpp.git",
+                    "tag": "v1.3.1",
+                    "commit": "fda1fd889548289178261d7aa02dd5d647247f94",
+                    "dest": "svgpp"
                 },
                 {
                     "type": "patch",
                     "paths": [
-                        "patches/fritzing-appdata-screenshots.patch",
+                        "patches/dep-ngspice-buildpath.patch",
+                        "patches/dep-quazip-buildpath.patch",
+                        "patches/dep-polyclipping-buildpath.patch",
+                        "patches/dep-svgpp-buildpath.patch",
+                        "patches/fritzing-appdata.patch",
                         "patches/add-wm-class.patch"
                     ]
                 },
                 {
                     "type": "git",
                     "url": "https://github.com/fritzing/fritzing-parts.git",
-                    "commit": "b82c8c3abd9bca5d30a4d0c28fb4327ac38cf511",
+                    "commit": "015626e6cafb1fc7831c2e536d97ca2275a83d32",
                     "dest": "parts"
                 },
                 {
@@ -91,6 +147,12 @@
                 {
                     "type": "file",
                     "path": "install-mime-types.sh"
+                },
+                {
+                    "type": "shell",
+                    "commands": [
+                        "lrelease phoenix.pro"
+                    ]
                 }
             ]
         }
