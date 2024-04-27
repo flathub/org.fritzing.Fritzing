@@ -2,11 +2,12 @@
     "id": "org.fritzing.Fritzing",
     "runtime": "org.kde.Platform",
     "sdk": "org.kde.Sdk",
-    "runtime-version": "5.15-21.08",
+    "runtime-version": "6.5",
     "command": "Fritzing",
     "rename-icon": "fritzing",
     "finish-args": [
-        "--socket=x11", "--share=ipc",
+        "--socket=fallback-x11",
+        "--share=ipc",
         "--socket=wayland",
         "--device=dri",
         "--socket=pulseaudio",
@@ -32,19 +33,92 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://boostorg.jfrog.io/artifactory/main/release/1.66.0/source/boost_1_66_0.tar.gz",
-                    "sha256": "bd0df411efd9a585e5a2212275f8762079fed8842264954675a4fddc46cfcf60"
+                    "url": "https://boostorg.jfrog.io/artifactory/main/release/1.85.0/source/boost_1_85_0.tar.bz2",
+                    "sha256": "7009fe1faa1697476bdc7027703a2badb84e849b7b0baad5086b087b971f8617",
+                    "x-checker-data": {
+                        "type": "anitya",
+                        "project-id": 6845,
+                        "stable-only": true,
+                        "url-template": "https://boostorg.jfrog.io/artifactory/main/release/$version/source/boost_${major}_${minor}_$patch.tar.bz2"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "ngspice",
+            "build-options": {
+                "strip": true
+            },
+            "config-opts": [
+                "--enable-xspice",
+                "--enable-cider",
+                "--enable-oldapps",
+                "--enable-openmp",
+                "--without-x",
+                "--with-ngshared"
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://git.code.sf.net/p/ngspice/ngspice",
+                    "tag": "ngspice-42",
+                    "commit": "902a62d2f442a1d8322ae4fcad35c143c7a14561",
+                    "x-checker-data": {
+                        "type": "git",
+                        "tag-pattern": "^ngspice-([\\d]+)$"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "polyclipping",
+            "buildsystem": "cmake-ninja",
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://downloads.sourceforge.net/polyclipping/clipper_ver6.4.2.zip",
+                    "sha256": "a14320d82194807c4480ce59c98aa71cd4175a5156645c4e2b3edd330b930627",
+                    "x-checker-data": {
+                        "type": "anitya",
+                        "project-id": 3683,
+                        "stable-only": true,
+                        "url-template": "https://downloads.sourceforge.net/polyclipping/clipper_ver${version}.zip"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "quazip",
+            "buildsystem": "cmake-ninja",
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://github.com/stachenov/quazip",
+                    "tag": "v1.4",
+                    "commit": "566fa496649b8cb09018b497575bb3bf2977965f",
+                    "x-checker-data": {
+                        "type": "git",
+                        "tag-pattern": "^v([\\d.]+)$"
+                    }
                 }
             ]
         },
         {
             "name": "libgit2",
             "buildsystem": "cmake-ninja",
+            "build-options": {
+                "cflags": "-Wp,-U_FORTIFY_SOURCE"
+            },
             "sources": [
                 {
-                    "type": "archive",
-                    "url": "https://github.com/libgit2/libgit2/archive/v0.27.7.tar.gz",
-                    "sha256": "1a5435a483759b1cd96feb12b11abb5231b0688016db506ce5947178f6ba2531"
+                    "type": "git",
+                    "url": "https://github.com/libgit2/libgit2",
+                    "tag": "v1.8.0",
+                    "commit": "d74d491481831ddcd23575d376e56d2197e95910",
+                    "x-checker-data": {
+                        "type": "git",
+                        "tag-pattern": "^v([\\d.]+)$"
+                    }
                 }
             ]
         },
@@ -66,20 +140,34 @@
                 {
                     "type": "git",
                     "url": "https://github.com/fritzing/fritzing-app.git",
-                    "tag": "0.9.6",
-                    "commit": "8a1e0682d7846f6384ae45373961ed693b4c55d2"
+                    "commit": "dbdbe34c843677df721c7b3fc3e32c0f737e7e95"
+                },
+                {
+                    "type": "git",
+                    "url": "https://github.com/svgpp/svgpp.git",
+                    "tag": "v1.3.1",
+                    "commit": "fda1fd889548289178261d7aa02dd5d647247f94",
+                    "dest": "svgpp",
+                    "x-checker-data": {
+                        "type": "git",
+                        "tag-pattern": "^v([\\d.]+)$"
+                    }
                 },
                 {
                     "type": "patch",
                     "paths": [
-                        "patches/fritzing-appdata-screenshots.patch",
+                        "patches/dep-ngspice-buildpath.patch",
+                        "patches/dep-quazip-buildpath.patch",
+                        "patches/dep-polyclipping-buildpath.patch",
+                        "patches/dep-svgpp-buildpath.patch",
+                        "patches/fritzing-appdata.patch",
                         "patches/add-wm-class.patch"
                     ]
                 },
                 {
                     "type": "git",
                     "url": "https://github.com/fritzing/fritzing-parts.git",
-                    "commit": "b82c8c3abd9bca5d30a4d0c28fb4327ac38cf511",
+                    "commit": "015626e6cafb1fc7831c2e536d97ca2275a83d32",
                     "dest": "parts"
                 },
                 {
@@ -91,6 +179,12 @@
                 {
                     "type": "file",
                     "path": "install-mime-types.sh"
+                },
+                {
+                    "type": "shell",
+                    "commands": [
+                        "lrelease phoenix.pro"
+                    ]
                 }
             ]
         }
